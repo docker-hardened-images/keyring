@@ -14,5 +14,5 @@ To verify images and attestations, customer can run the following command:
 
 ```
 $ cosign verify dhi/golang:1-dev \
-  --key https://raw.githubusercontent.com/docker-hardened-images/keyring/refs/heads/main/dhi.pub
+  --key https://raw.githubusercontent.com/docker-hardened-images/keyring/refs/heads/main/dhi-latest.pub
 ```
