@@ -6,8 +6,8 @@ Repository containing public signing keys for Docker Hardened Images (DHI)
 
 | Version | Status      |                        |
 |---------| ------------|------------------------|
-| 2       | enabled     | [dhi-2.pub](dhi-2.pub) |
-| 1       | disabled    | [dhi-1.pub](dhi-1.pub) |
+| 2       | enabled     | [dhi-2.pub](publickey/dhi-2.pub) |
+| 1       | disabled    | [dhi-1.pub](publickey/dhi-1.pub) |
 
 ## Usage
 
