@@ -24,5 +24,5 @@ $ regctl artifact list dhi/golang:1-debian12-dev \
 
 # verify the signature on any of the provided attestations
 $ cosign verify registry.scout.docker.com/dhi/golang@sha256:... \
-  --key https://registry.scout.docker.com/publickey/latest
+  --key https://registry.scout.docker.com/keyring/dhi/latest
 ```
