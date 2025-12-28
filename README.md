@@ -1,28 +1,65 @@
+<img alt="dhi-banner" src="https://github.com/user-attachments/assets/fc0ca203-3f25-4ae5-aa8e-e3918bbcc31f" />
+
 # Docker Hardened Images - Keyring
 
-Repository containing public signing keys for Docker Hardened Images (DHI)
+This repository contains the public signing keys for [**Docker Hardened Images**](https://dhi.io). These keys are used to verify the authenticity and integrity of Docker Hardened Images and their attestations.
 
-## Versions
+## 🎯 Overview
 
-| Version | Status      |                        |
-|---------| ------------|------------------------|
-| 2       | enabled     | [dhi-2.pub](publickey/dhi-2.pub) |
-| 1       | disabled    | [dhi-1.pub](publickey/dhi-1.pub) |
+The keyring provides cryptographic verification for Docker Hardened Images, ensuring:
 
-## Usage
+- **Supply chain security**: Verify image signatures and provenance
+- **Attestation validation**: Confirm authenticity of SBOMs and VEX metadata
+- **Trust**: Ensure images haven't been tampered with
 
-To verify images and attestations, customer can run the following command:
+## 🔑 Signing Keys
 
+| Version | Status      | Key File                              |
+|---------|-------------|---------------------------------------|
+| latest  | enabled     | [dhi-latest.pub](publickey/dhi-2.pub) |
+| 2       | enabled     | [dhi-2.pub](publickey/dhi-2.pub)      |
+| 1       | disabled    | [dhi-1.pub](publickey/dhi-1.pub)      |
+
+## 🚀 Getting Started
+
+### Verifying Images and Attestations
+
+To verify images and attestations, you can run the following commands:
+
+```bash
+# log into dhi.io
+$ docker login dhi.io
+
+# verify the signature on the image index
+$ cosign verify dhi.io/alpine-base:3.22 \
+  --key https://dhi.io/keyring/latest.pub \
+  --experimental-oci11
 ```
-# log into the OCI referrer registry
-$ docker login registry.scout.docker.com
 
+```bash
 # list all available attestations
-$ regctl artifact list dhi/golang:1-debian12-dev \
-  --external registry.scout.docker.com/dhi/golang \
+$ regctl artifact list dhi.io/golang:1-debian12-dev \
   --platform linux/arm64
 
 # verify the signature on any of the provided attestations
-$ cosign verify registry.scout.docker.com/dhi/golang@sha256:... \
-  --key https://registry.scout.docker.com/keyring/dhi/latest
+$ cosign verify dhi.io/golang@sha256:... \
+  --key https://dhi.io/keyring/latest.pub \
+  --experimental-oci11
 ```
+
+## 📄 License
+
+This project is licensed under the Apache License 2.0. See [LICENSE.txt](LICENSE.txt) for details.
+
+## 🔗 Links
+
+- **Docker Hardened Images Catalog**: [dhi.io](https://dhi.io)
+- **Docker Hardened Images**: [docker.com/products/hardened-images](https://docker.com/products/hardened-images/)
+- **Catalog Repository**: [github.com/docker-hardened-images/catalog](https://github.com/docker-hardened-images/catalog)
+- **Commercial Support**: [docker.com/support](https://docker.com/support/)
+- **Issue Tracker**: [GitHub Issues](https://github.com/docker-hardened-images/keyring/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/orgs/docker-hardened-images/discussions)
+
+---
+
+**Docker Hardened Images** - Building secure containers, together.
