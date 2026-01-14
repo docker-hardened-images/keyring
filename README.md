@@ -53,7 +53,7 @@ $ cosign verify dhi.io/golang@sha256:... \
 
 #### Alpine
 
-```
+```bash
 $ cd /etc/apk/keys && curl -O https://dhi.io/keyring/dhi-apk@docker-0F81AD7700D99184.rsa.pub
 $ echo "https://dhi.io/apk/alpine/v3.23/main" >> /etc/apk/repositories
 $ apk update
@@ -61,7 +61,7 @@ $ apk update
 
 #### Debian
 
-```
+```bash
 $ curl -s https://dhi.io/keyring/dhi-deb-gpg.D46852F6925E9F71.key | gpg --dearmor >> /usr/share/keyrings/docker-dhi-deb.gpg
 $ echo "deb [signed-by=/usr/share/keyrings/docker-dhi-deb.gpg] https://dhi.io/deb/debian trixie main" >> /etc/apt/sources.list.d/docker-dhi.list
 $ echo "deb-src [signed-by=/usr/share/keyrings/docker-dhi-deb.gpg] https://dhi.io/deb/debian trixie main" >> /etc/apt/sources.list.d/docker-dhi.list
