@@ -14,11 +14,14 @@ The keyring provides cryptographic verification for Docker Hardened Images, ensu
 
 ## 🔑 Signing Keys
 
-| Version | Status      | Key File                              |
-|---------|-------------|---------------------------------------|
-| latest  | enabled     | [dhi-latest.pub](publickey/dhi-2.pub) |
-| 2       | enabled     | [dhi-2.pub](publickey/dhi-2.pub)      |
-| 1       | disabled    | [dhi-1.pub](publickey/dhi-1.pub)      |
+| Status   | Key File                                                                                      | URL 
+|----------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| active   | [dhi-latest.pub](publickey/dhi-2.pub)                                                         | https://dhi.io/keyring/latest.pub                          |
+| active   | [dhi-2.pub](publickey/dhi-2.pub)                                                              | https://dhi.io/keyring/2.pub                               |
+| inactive | [dhi-1.pub](publickey/dhi-1.pub)                                                              | https://dhi.io/keyring/1.pub                               |
+| active   | [dhi-apk@docker-0F81AD7700D99184.rsa.pub](publickey/dhi-apk@docker-0F81AD7700D99184.rsa.pub)  | https://dhi.io/keyring/apk@docker-0F81AD7700D99184.rsa.pub |
+| active   | [dhi-deb-gpg.D46852F6925E9F71.key](publickey/dhi-deb-gpg.D46852F6925E9F71.key)                | https://dhi.io/keyring/deb-gpg.D46852F6925E9F71.key        |   
+ 
 
 ## 🚀 Getting Started
 
