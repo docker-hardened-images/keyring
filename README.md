@@ -21,6 +21,7 @@ The keyring provides cryptographic verification for Docker Hardened Images, ensu
 | inactive | [dhi-1.pub](publickey/dhi-1.pub)                                                                 | https://dhi.io/keyring/1.pub                                   |
 | active   | [dhi-apk@docker-0F81AD7700D99184.rsa.pub](publickey/dhi-dhi-apk@docker-0F81AD7700D99184.rsa.pub) | https://dhi.io/keyring/dhi-apk@docker-0F81AD7700D99184.rsa.pub |
 | active   | [dhi-apk-sec@docker-0F81AD7700D99184.rsa.pub](publickey/dhi-dhi-apk-sec@docker-0F81AD7700D99184.rsa.pub) | https://dhi.io/keyring/dhi-apk-sec@docker-0F81AD7700D99184.rsa.pub |
+| active   | [dhi-apk-els@docker-0F81AD7700D99184.rsa.pub](publickey/dhi-dhi-apk-els@docker-0F81AD7700D99184.rsa.pub) | https://dhi.io/keyring/dhi-apk-els@docker-0F81AD7700D99184.rsa.pub |
 | active   | [dhi-deb-gpg.D46852F6925E9F71.key](publickey/dhi-dhi-deb-gpg.D46852F6925E9F71.key)               | https://dhi.io/keyring/dhi-deb-gpg.D46852F6925E9F71.key        |   
  
 ## 🚀 Getting Started
@@ -54,10 +55,35 @@ $ cosign verify dhi.io/golang@sha256:... \
 
 #### Alpine
 
+##### Main Package Respository
+
 ```bash
 $ cd /etc/apk/keys && curl -O https://dhi.io/keyring/dhi-apk@docker-0F81AD7700D99184.rsa.pub
 $ echo "https://dhi.io/apk/alpine/v3.23/main" >> /etc/apk/repositories
 $ apk update
+```
+
+##### Enterprise Package Repository
+
+```bash
+$ cd /etc/apk/keys && curl -O https://dhi.io/keyring/dhi-apk-sec@docker-0F81AD7700D99184.rsa.pub
+$ echo "https://dhi.io/apk/alpine/v3.23/security" >> /etc/apk/repositories
+$ apk update
+```
+
+##### ELS Package Repository
+
+```bash
+$ cd /etc/apk/keys && curl -O https://dhi.io/keyring/dhi-apk-els@docker-0F81AD7700D99184.rsa.pub
+$ echo "https://dhi.io/apk/alpine/v3.23/els" >> /etc/apk/repositories
+$ apk update
+```
+
+The Enterprise and ELS package repositories require authentication and DHI entitlements. 
+You can authenticate using the `dhictl` by running the following command:
+
+```bash
+$ docker run -it -e HTTP_AUTH="$(dhictl auth apk)" dhi.io/alpine-base:3.23-dev
 ```
 
 #### Debian
